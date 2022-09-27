@@ -11,6 +11,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 import javax.swing.SwingConstants;
 
@@ -26,6 +28,7 @@ public class PantallaEjercicio_1 extends JFrame {
 	private JTextField txtTelefono;
 	private JTextField txtFechaNac;
 	private JLabel lblDatos;
+	private JLabel lbl_fijo;
 
 	/**
 	 * Launch the application.
@@ -83,8 +86,17 @@ public class PantallaEjercicio_1 extends JFrame {
 		
 		txtTelefono = new JTextField();
 		txtTelefono.setBounds(120, 100, 169, 20);
-		contentPane.add(txtTelefono);
 		txtTelefono.setColumns(10);
+		contentPane.add(txtTelefono);
+		txtTelefono.addKeyListener(new KeyAdapter() { 
+			public void keyTyped(KeyEvent e) {
+				char caracter =e.getKeyChar();
+				if(((caracter<'0')||(caracter >'9')) && (caracter!='\b')
+					&&(caracter != KeyEvent.VK_BACK_SPACE)){
+						e.consume();
+				}
+			}
+		});
 		
 		JLabel lblFechaNac = new JLabel("FechaNac.");
 		lblFechaNac.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -96,19 +108,29 @@ public class PantallaEjercicio_1 extends JFrame {
 		contentPane.add(txtFechaNac);
 		txtFechaNac.setColumns(10);
 		
+		lbl_fijo = new JLabel("");
+		lbl_fijo.setBounds(10, 183, 198, 25);
+		contentPane.add(lbl_fijo);
+		
 		lblDatos = new JLabel("");
-		lblDatos.setBounds(10, 197, 324, 52);
+		lblDatos.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblDatos.setBounds(10, 219, 324, 20);
 		contentPane.add(lblDatos);
 		
 		JButton btnMostrar = new JButton("Mostrar");
 		btnMostrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if(validarDatos() == true) {
-					String mensaje;
-					mensaje = "Los datos ingresados fueron: ";
+					String mensaje1 = "Los datos ingresados fueron:";
+					String mensaje="";
 					mensaje += txtNombre.getText() + " " + txtApellido.getText();
 					mensaje += ", " + txtTelefono.getText() + ", " + txtFechaNac.getText();
+					lbl_fijo.setText(mensaje1);
 					lblDatos.setText(mensaje);
+					txtApellido.setText(null);
+					txtNombre.setText(null);
+					txtFechaNac.setText(null);
+					txtTelefono.setText(null);
 				}
 			}
 
@@ -152,13 +174,14 @@ public class PantallaEjercicio_1 extends JFrame {
 		contentPane.add(btnMostrar);
 		
 		
+		
+		
 	}
 	
 	public void Visibilidad_1(boolean visible) {
 		// TODO Auto-generated method stub
 		setVisible(visible);
 	}
-	
 }
 
 

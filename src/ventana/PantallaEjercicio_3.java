@@ -97,9 +97,9 @@ public class PantallaEjercicio_3 extends JFrame {
 		cbxAdministracion.setBounds(169, 31, 145, 23);
 		pnlEspecialidad.add(cbxAdministracion);
 
-		JCheckBox cbxDiseñoGrafico = new JCheckBox("Diseño grafico");
-		cbxDiseñoGrafico.setBounds(169, 57, 145, 23);
-		pnlEspecialidad.add(cbxDiseñoGrafico);
+		JCheckBox cbxDiseÃ±oGrafico = new JCheckBox("Diseï¿½o grafico");
+		cbxDiseÃ±oGrafico.setBounds(169, 57, 145, 23);
+		pnlEspecialidad.add(cbxDiseÃ±oGrafico);
 
 		JCheckBox cbxProgramacion = new JCheckBox("Programacion");
 		cbxProgramacion.setBounds(169, 7, 145, 23);
@@ -136,8 +136,8 @@ public class PantallaEjercicio_3 extends JFrame {
 					if (cbxAdministracion.isSelected()) {
 						Especialidad += "Administracion - ";
 					}
-					if (cbxDiseñoGrafico.isSelected()) {
-						Especialidad += "Diseño Grafico - ";
+					if (cbxDiseÃ±oGrafico.isSelected()) {
+						Especialidad += "Diseï¿½o Grafico - ";
 					}
 					if (cbxProgramacion.isSelected()) {
 						Especialidad += "Programacion - ";
@@ -160,7 +160,7 @@ public class PantallaEjercicio_3 extends JFrame {
 				}
 
 				if (cbxAdministracion.isSelected()) {
-				} else if (cbxDiseñoGrafico.isSelected()) {
+				} else if (cbxDiseÃ±oGrafico.isSelected()) {
 				} else if (cbxProgramacion.isSelected()) {
 				} else {
 					return -1;
@@ -190,5 +190,9 @@ public class PantallaEjercicio_3 extends JFrame {
 			}
 		}
 		return true;
+	}
+	public void Visibilidad_3(boolean visible) {
+		// TODO Auto-generated method stub
+		setVisible(visible);
 	}
 }
