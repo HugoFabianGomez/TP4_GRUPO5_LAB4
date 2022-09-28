@@ -8,8 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 import javax.swing.JCheckBox;
-import javax.swing.JTextPane;
 import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.border.EmptyBorder;
@@ -26,6 +26,7 @@ public class PantallaEjercicio_3 extends JFrame {
 	private String SistemaOperativo;
 	private String Especialidad;
 	private String Mensaje;
+	private JTextField txtHoras;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -97,9 +98,9 @@ public class PantallaEjercicio_3 extends JFrame {
 		cbxAdministracion.setBounds(169, 31, 145, 23);
 		pnlEspecialidad.add(cbxAdministracion);
 
-		JCheckBox cbxDiseñoGrafico = new JCheckBox("Dise�o grafico");
-		cbxDiseñoGrafico.setBounds(169, 57, 145, 23);
-		pnlEspecialidad.add(cbxDiseñoGrafico);
+		JCheckBox cbxDisenoGrafico = new JCheckBox("Dise�o grafico");
+		cbxDisenoGrafico.setBounds(169, 57, 145, 23);
+		pnlEspecialidad.add(cbxDisenoGrafico);
 
 		JCheckBox cbxProgramacion = new JCheckBox("Programacion");
 		cbxProgramacion.setBounds(169, 7, 145, 23);
@@ -115,9 +116,10 @@ public class PantallaEjercicio_3 extends JFrame {
 		pnlHoras.add(lblCantidadDeHoras);
 		lblCantidadDeHoras.setFont(new Font("Tahoma", Font.BOLD, 12));
 
-		JTextPane txtHoras = new JTextPane();
+		JTextField txtHoras = new JTextField();
 		txtHoras.setBounds(255, 5, 85, 20);
 		pnlHoras.add(txtHoras);
+		txtHoras.setHorizontalAlignment(JTextField.RIGHT);
 
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
@@ -136,7 +138,7 @@ public class PantallaEjercicio_3 extends JFrame {
 					if (cbxAdministracion.isSelected()) {
 						Especialidad += "Administracion - ";
 					}
-					if (cbxDiseñoGrafico.isSelected()) {
+					if (cbxDisenoGrafico.isSelected()) {
 						Especialidad += "Dise�o Grafico - ";
 					}
 					if (cbxProgramacion.isSelected()) {
@@ -160,7 +162,7 @@ public class PantallaEjercicio_3 extends JFrame {
 				}
 
 				if (cbxAdministracion.isSelected()) {
-				} else if (cbxDiseñoGrafico.isSelected()) {
+				} else if (cbxDisenoGrafico.isSelected()) {
 				} else if (cbxProgramacion.isSelected()) {
 				} else {
 					return -1;
